@@ -143,6 +143,7 @@ function createHeart() {
     heart.style.animationDuration = Math.random() * 3 + 3 + "s";
     document.body.appendChild(heart);
 
+    //
     setTimeout(() => {
         heart.remove();
     }, 5000);
