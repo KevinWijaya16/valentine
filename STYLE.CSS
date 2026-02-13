@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: url("background.jpg") no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+    position: relative;
+}
+
+/* Overlay pink romantis */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 105, 180, 0.45); /* 💗 Pink */
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Card pink glass */
+.card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 182, 193, 0.25); /* soft pink */
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    width: 380px;
+    box-shadow: 0 0 50px rgba(255, 20, 147, 0.8); /* glow pink */
+    animation: fadeIn 1.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+#typing {
+    min-height: 150px;
+    font-size: 17px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.yes {
+    background: #ff0066;
+    color: white;
+}
+
+.yes:hover {
+    background: #ff3385;
+    transform: scale(1.1);
+}
+
+.no {
+    background: white;
+    color: #ff0066;
+    position: relative;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    color: rgba(255,255,255,0.8);
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+/* Overlay blur saat foto muncul */
+.blur-bg {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.5);
+    z-index: 900;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Container foto romantis */
+.photo-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    text-align: center;
+    z-index: 1000;
+    animation: photoZoom 1.5s ease forwards;
+}
+
+.photo-container img {
+    width: 320px;
+    border-radius: 25px;
+    box-shadow: 0 0 50px rgba(255,105,180,0.9);
+}
+
+.photo-container h2 {
+    margin-top: 15px;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 0 0 15px pink;
+    letter-spacing: 1px;
+}
+
+/* Animasi zoom foto */
+@keyframes photoZoom {
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+\/* LOVE BESAR */
+.big-love {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 120px;
+    color: #ff1a75;
+    text-shadow: 0 0 40px rgba(255,0,100,0.9);
+    z-index: 1100;
+    animation: loveAppear 1s ease forwards, heartbeat 1.2s infinite 1s;
+}
+
+/* Animasi muncul */
+@keyframes loveAppear {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Efek detak jantung */
+@keyframes heartbeat {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    25% { transform: translate(-50%, -50%) scale(1.2); }
+    40% { transform: translate(-50%, -50%) scale(1); }
+    60% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes softBloom {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+/* ============================= */
+/* RESPONSIVE MOBILE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 340px;
+        padding: 25px;
+        border-radius: 20px;
+    }
+
+    .card h1 {
+        font-size: 22px;
+    }
+
+    #typing {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    button {
+        padding: 10px 18px;
+        font-size: 14px;
+        margin: 8px;
+    }
+
+    /* Foto */
+    #photoContainer img {
+        width: 220px;
+        max-width: 80%;
+    }
+
+    /* Love besar */
+    .big-love {
+        font-size: 120px !important;
+    }
+
+}
